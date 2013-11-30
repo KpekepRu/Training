@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  <title>The Best Table!</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div id="container">
+    <div class="header">
+      <div id="titleBlock">
+        <h1 align="center">Добро пожаловать!</h1>
+      </div>
+    </div>
+    <div id="content">
+      <div id="form_block">
+        <div class="form_header" align="center">
+          <h3> <b> Панель управления </b> </h3>
+        </div>
+        <form method='post' action="update.php">
+          Имя:      <div class="field"><input type="text" name="Name">        </div> <br/>
+          Фамилия:  <div class="field"><input type="text" name="Surname">     </div> <br/>
+          Курс:     <div class="field"><input type="integer" name="Course">   </div> <br/>
+          Факультет:<div class="field"><input type="text" name="Faculty">     </div> <br/>
+          Номер:   <div class="field"><input type="integer" name="Index">     </div> <br/>
+          <input type = "submit" name = "add" value = "Добавить студента">           <br/>
+          <input type = "submit" name = "edit" value = "Изменить данные о студенте"> <br/>
+          <input type = "submit" name = "delete" value = "Удалить студента">         <br/>
+        </form>
+        <div class="signature" onmousedown=>
+          Нужна помощь?
+        </div>
+      </div>
+      <div id="table_block">
+        <div class="form_header">
+          <b> Данные о студентах </b> 
+        </div>
+        <table width = "100%" >
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Course</th>
+              <th>Faculty</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for r in record %}
+            <tr>
+              <td>{{r.Index|escape}}</td>
+              <td>{{r.Name|escape}}</td>
+              <td>{{r.Surname|escape}}</td>
+              <td>{{r.Course|escape}}</td>
+              <td>{{r.Faculty|escape}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>  
+    </div>
+  </div>
+</body>
+</html>
