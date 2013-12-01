@@ -4,6 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
   <title>The Best Table!</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/ajax.js"></script>
 </head>
 <body>
   <div id="container">
@@ -17,17 +19,17 @@
         <div class="form_header" align="center">
           <h3> <b> Панель управления </b> </h3>
         </div>
-        <form method='post' action="update.php">
-          Имя:      <div class="field"><input type="text" name="Name">        </div> <br/>
-          Фамилия:  <div class="field"><input type="text" name="Surname">     </div> <br/>
-          Курс:     <div class="field"><input type="integer" name="Course">   </div> <br/>
-          Факультет:<div class="field"><input type="text" name="Faculty">     </div> <br/>
-          Номер:   <div class="field"><input type="integer" name="Index">     </div> <br/>
-          <input type = "submit" name = "add" value = "Добавить студента">           <br/>
-          <input type = "submit" name = "edit" value = "Изменить данные о студенте"> <br/>
-          <input type = "submit" name = "delete" value = "Удалить студента">         <br/>
+        <form method='post' action="">
+          Имя:      <div class="field"><input type="text" name="Name" id='name'>        </div> <br/>
+          Фамилия:  <div class="field"><input type="text" name="Surname" id='surname'>     </div> <br/>
+          Курс:     <div class="field"><input type="integer" name="Course" id='course'>   </div> <br/>
+          Факультет:<div class="field"><input type="text" name="Faculty" id='faculty'>     </div> <br/>
+          Номер:    <div class="field"><input type="integer" name="Index" id='index'>    </div> <br/>
+          <input type = "submit" name = "add" value = "Добавить студента" id="add">           <br/>
+          <input type = "submit" name = "edit" value = "Изменить данные о студенте" id="edit"> <br/>
+          <input type = "submit" name = "delete" value = "Удалить студента" id="delete">         <br/>
         </form>
-        <div class="signature" onmousedown=>
+        <div id="signature" onmousedown=>
           Нужна помощь?
         </div>
       </div>
@@ -35,7 +37,7 @@
         <div class="form_header">
           <b> Данные о студентах </b> 
         </div>
-        <table width = "100%" >
+        <table width = "100%" id='t'>
           <thead>
             <tr>
               <th></th>
@@ -54,9 +56,9 @@
               <td>{{r.Course|escape}}</td>
               <td>{{r.Faculty|escape}}</td>
             </tr>
-          {% endfor %}
+          {% endfor %}   
           </tbody>
-        </table>
+        </table>     
       </div>  
     </div>
   </div>

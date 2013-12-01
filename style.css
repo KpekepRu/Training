@@ -1,7 +1,7 @@
 body
 {
   background-color: #eaeaea;
-  background-image: url("bg.png");
+  background-image: url("img/bg.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
@@ -47,7 +47,7 @@ body
 	height: 70%;
 	line-height: 35px;
 	background: rgba(255,255,255,0.5);
-    box-shadow: 3px 3px 10px black;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
 }
 
 .field
@@ -64,7 +64,7 @@ body
 	float: right;
 	width: 70%;
 	min-height: 100%;
-    box-shadow: 3px 3px 10px black;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
 }
 
 .form_header
@@ -84,7 +84,7 @@ body
 	border-bottom-color: green;
 }
 
-.signature
+#signature
 {
 	text-decoration: underline;
 	color: red;
