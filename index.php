@@ -29,5 +29,4 @@
       {
             die ('ERROR: ' . $e->getMessage());
       }
-      //pull request testing--Iskander
 ?>
