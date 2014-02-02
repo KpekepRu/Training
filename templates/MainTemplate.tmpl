@@ -11,27 +11,44 @@
   <div id="container">
     <div class="header">
       <div id="titleBlock">
+      {% if autho %}
+        <h1 align="center">Добро пожаловать, {{username|escape}}!</h1>
+        {% else %}
         <h1 align="center">Добро пожаловать!</h1>
+        {% endif %}
       </div>
     </div>
     <div id="content">
       <div id="form_block">
         <div class="form_header" align="center">
+        {% if autho %}
           <h3> <b> Панель управления </b> </h3>
+        {% else %}
+          <h3> <b> Авторизация </b> </h3>
+        {% endif %}
         </div>
+        {% if autho %}
         <form method='post' action="">
-          Имя:      <div class="field"><input type="text" name="Name" id='name'>        </div> <br/>
+          Имя:      <div class="field"><input type="text" name="Name" id='name'>           </div> <br/>
           Фамилия:  <div class="field"><input type="text" name="Surname" id='surname'>     </div> <br/>
-          Курс:     <div class="field"><input type="integer" name="Course" id='course'>   </div> <br/>
+          Курс:     <div class="field"><input type="integer" name="Course" id='course'>    </div> <br/>
           Факультет:<div class="field"><input type="text" name="Faculty" id='faculty'>     </div> <br/>
-          Номер:    <div class="field"><input type="integer" name="Index" id='index'>    </div> <br/>
-          <input type = "submit" name = "add" value = "Добавить студента" id="add">           <br/>
-          <input type = "submit" name = "edit" value = "Изменить данные о студенте" id="edit"> <br/>
-          <input type = "submit" name = "delete" value = "Удалить студента" id="delete">         <br/>
+          Номер:    <div class="field"><input type="integer" name="Index" id='index'>      </div> <br/>
+          <input type = "submit" name = "add" value = "Добавить студента" id="add">               <br/>
+          <input type = "submit" name = "edit" value = "Изменить данные студента" id="edit">      <br/>
+          <input type = "submit" name = "delete" value = "Удалить студента" id="delete">          <br/>
+          <input type = "submit" name = "exit" value = "Выйти" id="exit">          <br/>
         </form>
         <div id="signature" onmousedown=>
           Нужна помощь?
         </div>
+        {% else %}
+        <form method='post' action="">
+          Логин:   <div class="field"><input type="text" name="Login" id='login'>        </div> <br/>
+          Пароль:  <div class="field"><input type="text" name="Pass" id='pass'>  </div> <br/>
+          <input type = "submit" name = "enter" value = "Войти" id="enter">           <br/>
+        </form>
+        {% endif %}
       </div>
       <div id="table_block">
         <div class="form_header">

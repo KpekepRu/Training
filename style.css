@@ -44,7 +44,7 @@ body
 	padding: 15px;
 	float: left;
 	width: 20%;
-	height: 70%;
+	height: auto;
 	line-height: 35px;
 	background: rgba(255,255,255,0.5);
     box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
@@ -89,6 +89,14 @@ body
 	text-decoration: underline;
 	color: red;
 	margin-top: 30px;
+}
+
+#enter
+{
+    width: 30%;
+    font-size: 16px;
+    margin-top: 7%;
+    margin-left: 35%;
 }
 
 input

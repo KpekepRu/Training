@@ -100,5 +100,38 @@ $(function()
         }
       })
     })
+
+    $('#enter').on('click', function(e)
+    {
+      var login = $("#login").val();
+      var pass = $("#pass").val();
+      
+      e.preventDefault();
+      $.ajax(
+      {
+        url: 'php/session.php',
+        type: 'post',
+        data: {'enter': true,'Login': login, 'Pass': pass},
+        success: function(data)
+        {
+          location.reload();
+        }
+      })
+    });
+
+    $('#exit').on('click', function(e)
+    {
+      e.preventDefault();
+      $.ajax(
+      {
+        url: 'php/session.php',
+        type: 'post',
+        data: {'exit': true},
+        success: function(data)
+        {
+          location.reload();
+        }
+      })
+    });
   });
   
