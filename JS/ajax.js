@@ -114,7 +114,28 @@ $(function()
         data: {'enter': true,'Login': login, 'Pass': pass},
         success: function(data)
         {
-          location.reload();
+          if (jQuery.parseJSON( data ))
+            location.reload();
+          else alert('Incorrect login or password. Try again.');
+        }
+      })
+    });
+
+    $('#rega').on('click', function(e)
+    {
+      var login = $("#login").val();
+      var pass = $("#pass").val();
+
+      e.preventDefault();
+      $.ajax(
+      {
+        url: 'php/session.php',
+        type: 'post',
+        data: {'rega': true, 'Login': login, 'Pass': pass},
+        success: function(data)
+        {
+          if (jQuery.parseJSON( data ))
+            alert('Thanks for registration.');
         }
       })
     });

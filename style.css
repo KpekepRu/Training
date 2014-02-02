@@ -91,12 +91,20 @@ body
 	margin-top: 30px;
 }
 
-#enter
+#rega
 {
-    width: 30%;
+    width: 70%;
+    font-size: 16px;
+    margin-top: 3%;
+    margin-left: 15%;
+}
+
+#enter 
+{
+    width: 70%;
     font-size: 16px;
     margin-top: 7%;
-    margin-left: 35%;
+    margin-left: 15%;
 }
 
 input

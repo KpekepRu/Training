@@ -3,11 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 30 2013 г., 13:40
+-- Время создания: Фев 02 2014 г., 20:46
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -20,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `mainbase`
 --
-CREATE DATABASE `mainbase` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `mainbase`;
 
 -- --------------------------------------------------------
 
@@ -48,8 +45,27 @@ CREATE TABLE IF NOT EXISTS `my_info` (
 INSERT INTO `my_info` (`Index`, `Name`, `Surname`, `Course`, `Faculty`) VALUES
 (1, 'Ilshat', 'Ahmetov', 2, 'VMK'),
 (2, 'Iskander', 'Sharipov', 2, 'VMK'),
-(3, 'Maxim', 'Efimov', 2, 'VMK');
-SET FOREIGN_KEY_CHECKS=1;
+(3, 'Maxim', 'Efimov', 2, 'VMK'),
+(4, 'Nadir', 'Manahov', 2, 'VMK');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `Login` text COLLATE utf8_bin NOT NULL,
+  `Password` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`Login`, `Password`) VALUES
+('User', '123'),
+('Kpekep', 'qwe');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
