@@ -1,6 +1,6 @@
+
 $(function()
   {
-    
     $('#add').on('click', function(e)
     {
       var name = $("#name").val();
@@ -151,6 +151,50 @@ $(function()
         success: function(data)
         {
           location.reload();
+        }
+      })
+    });
+
+    var status = 1;
+
+    $('#right_marker').on('click', function(e)
+    {
+      e.preventDefault();
+      $.ajax(
+      {
+        success: function(data)
+        {
+          if (status == 1)
+          {
+            status = 2;
+            el = document.getElementById("right_marker"); 
+            el.style.cssText="background:rgba(255,255,255,0.5); box-shadow:10px -2px 4px -5px rgba(50, 50, 50, 0.5);"; 
+            el = document.getElementById("left_marker"); 
+            el.style.cssText="background:rgba(255,255,255,0.2); box-shadow:10px -2px 4px -5px rgba(50, 50, 50, 0.2);"; 
+          }
+        }
+      })
+    });
+
+    $('#left_marker').on('click', function(e)
+    {
+      e.preventDefault();
+      $.ajax(
+      {
+        success: function(data)
+        {
+          if (status == 2)
+          {
+            status = 1;
+            var el = document.getElementById("block_1"); 
+            el.hidden = false;
+            var el = document.getElementById("block_2"); 
+            el.hidden = true;
+            var el = document.getElementById("left_marker"); 
+            el.style.cssText="background:rgba(255,255,255,0.5); box-shadow:10px -2px 4px -5px rgba(50, 50, 50, 0.5);"; 
+            var el = document.getElementById("right_marker"); 
+            el.style.cssText="background:rgba(255,255,255,0.2); box-shadow:10px -2px 4px -5px rgba(50, 50, 50, 0.2);"; 
+          }
         }
       })
     });

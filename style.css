@@ -56,24 +56,57 @@ body
 	float: right;
 }
 
-#table_block
+#main_block
 {
-	border-radius: 8px;
-	padding: 15px;
-	background: rgba(255,255,255,0.5);
 	float: right;
 	width: 70%;
-	min-height: 100%;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+	height: 100%;
+    border-radius: 8px;
 }
 
-.form_header
+#left_marker
 {
-	width: 100%;
+    
+    padding-top: 0.6%;
+    height: 7.1%;
+    float: left;
+	width: 49.8%;
 	font-size: 30px;
  	text-align: center;
- 	margin-bottom: 22px;
  	color: #333;
+    background: rgba(255,255,255,0.5);
+    box-shadow: 10px -2px 4px -5px rgba(50, 50, 50, 0.5);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#right_marker
+{
+    
+    background: rgba(255,255,255,0.2);
+    float: right;
+    padding-top: 0.6%;
+    height: 7.1%;
+    width: 49.8%;
+    font-size: 30px;
+    text-align: center;
+    color: #333;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 10px -2px 7px -5px rgba(50, 50, 50, 0.2);
+}
+
+#table_block
+{
+    
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-top: 4%;
+    height: 86%;
+    background: rgba(255,255,255,0.5);
+    width: 100%;
+    float: left;
+    box-shadow: 5px 7px 7px rgba(50, 50, 50, 0.5);
 }
 
 .form_header h3
@@ -193,4 +226,166 @@ table tbody td{
     color:#666;
     text-shadow:1px 1px 1px #fff;
     border-radius: 5px;
+}
+
+#paint
+{
+    float: left;
+    margin-right: 0%;
+    margin-left: 0%;
+    border-color: #fff;
+    border: 3px solid;
+}
+
+.paint_button_1
+{
+    width: 10%;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 5px;
+    width:140px;
+    margin-left: 40px;
+}
+
+.paint_button_2
+{
+    height: 65px;
+    font-size: 20px;
+    width: 65px;
+    margin-left: 5px; 
+    margin-top: 15px;
+}
+
+#fb1
+{
+    margin-left: 40px;
+}
+
+.brushsize
+{
+    height: 65px;
+    font-size: 20px;
+    width: 35px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+#bs1
+{
+    margin-left: 25px;
+}
+
+.info_left
+{
+    text-align: center;
+    font-size: 20px;
+    background: rgba(255,255,255,0.5);
+    width: 20%;
+    border-radius: 8px;
+    padding: 5px;
+    margin-left: 18px;
+    border: solid;
+    border-color: silver;
+    margin-top: 10px; 
+}
+
+.info_right
+{
+    float: right;
+    text-align: center;
+    font-size: 20px;
+    background: rgba(255,255,255,0.5);
+    min-width: 73%;
+    border-radius: 8px;
+    padding: 5px;
+    margin-right: 20px;
+    margin-left: 50%;
+    border: solid;
+    border-color: silver
+}
+
+.big_color_field
+{
+    position:absolute; 
+    margin-top: 50px;
+    width: 50px;
+    height: 50px;
+    background: black;
+    border: 3px solid;
+    border-color: black;
+}
+
+#big_color_left
+{
+    margin-left: 55px;
+    border-top-left-radius:8px;
+    border-bottom-left-radius: 8px;
+}
+
+#big_color_right
+{
+    margin-left: 105px;
+    background: white;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.small_color_field
+{
+    position: absolute;
+    height: 20px;
+    width: 30px;
+    border: 3px solid;
+}
+
+#color_field
+{
+    position:absolute; 
+    margin-top: 290px;
+    margin-left: 55px;
+    width: 100px;
+    height: 50px;
+    background: white;
+    border: 4px solid;
+    border-color: white;
+    background-color: black;
+    border-radius: 8px;
+}
+
+input[type="range"]
+{
+    width: 120px;
+    position:absolute; 
+    float: right;
+    background-color: red;
+}
+
+.range_field
+{
+    position: absolute;
+    width: 40px;
+}
+
+#green_range
+{
+    background-color: green;
+}
+
+#blue_range
+{
+    background-color: blue;
+}
+
+input[type="submit"].gold_input
+{
+    border-bottom:3px solid #e6f0a3;
+    background: #e6f0a3;
+    background: -moz-linear-gradient(top,  #e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6f0a3), color-stop(50%,#d2e638), color-stop(51%,#c3d825), color-stop(100%,#dbf043));
+    background: -webkit-linear-gradient(top,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+    background: -o-linear-gradient(top,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+    background: -ms-linear-gradient(top,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+    background: linear-gradient(to bottom,  #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6f0a3', endColorstr='#dbf043',GradientType=0 );
+
 }

@@ -6,6 +6,8 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="js/ajax.js"></script>
+  <script type="text/javascript" src="js/paint.js"></script>
+  <script type="text/javascript" src="js/paint_buttons.js"></script>
 </head>
 <body>
   <div id="container">
@@ -13,9 +15,9 @@
       <div id="titleBlock">
       {% if autho %}
         <h1 align="center">Добро пожаловать, {{username|escape}}!</h1>
-        {% else %}
+      {% else %}
         <h1 align="center">Добро пожаловать!</h1>
-        {% endif %}
+      {% endif %}
       </div>
     </div>
     <div id="content">
@@ -51,31 +53,100 @@
         </form>
         {% endif %}
       </div>
-      <div id="table_block">
-        <div class="form_header">
+      <div id="main_block">
+        <div id="left_marker">
           <b> Данные о студентах </b> 
         </div>
-        <table width = "100%" id='t'>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Surname</th>
-              <th>Course</th>
-              <th>Faculty</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for r in record %}
-            <tr>
-              <td>{{r.Index|escape}}</td>
-              <td>{{r.Name|escape}}</td>
-              <td>{{r.Surname|escape}}</td>
-              <td>{{r.Course|escape}}</td>
-              <td>{{r.Faculty|escape}}</td>
-            </tr>
-          {% endfor %}   
-        </table>     
+        <div id="right_marker">
+          <b> Рисовалка </b> 
+        </div>
+        <div id="table_block">
+          <div id="block_1">
+            <table width = "96%" id='t' align="center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Surname</th>
+                  <th>Course</th>
+                  <th>Faculty</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for r in record %}
+                <tr>
+                  <td>{{r.Index|escape}}</td>
+                  <td>{{r.Name|escape}}</td>
+                  <td>{{r.Surname|escape}}</td>
+                  <td>{{r.Course|escape}}</td>
+                  <td>{{r.Faculty|escape}}</td>
+                </tr>
+              {% endfor %}   
+            </table> 
+          </div>
+          <div id='block_2' hidden>
+            <div width="700" height="600" style="float: right">
+              <div width="400" height="600" style="float: left;">
+                <canvas id="paint" width="400" height="400">
+                  <stf>Пора переустанавливать браузер!</stf>
+                </canvas>
+                <div width="400" height="200" style="margin-left:105px;">
+                  <input value="Стереть все" style="width:190px; font-size:18px; margin-top: 10px" type="submit" id="erase_input" onclick="erase()">
+                </div>
+              </div>
+              <div width="300" style="float: right">
+                <div class="info_right">
+                  Палитра
+                </div>
+                <div type="field" class="big_color_field" id="big_color_left"  onclick="choose_color(this)"> </div>
+                <div type="field" class="big_color_field" id="big_color_right" onclick="choose_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_1" style="margin-top:130px; margin-left:23px; background: white" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_2" style="margin-top:130px; margin-left:68px; background: silver" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_3" style="margin-top:130px; margin-left:113px; background: gray" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_4" style="margin-top:130px; margin-left:158px; background: black" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_5" style="margin-top:170px; margin-left:23px; background: red" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_6" style="margin-top:170px; margin-left:68px; background: pink" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_7" style="margin-top:170px; margin-left:113px; background: yellow" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_8" style="margin-top:170px; margin-left:158px; background: gold" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_9" style="margin-top:210px; margin-left:23px; background: green" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_10" style="margin-top:210px; margin-left:68px; background: lightgreen" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_11" style="margin-top:210px; margin-left:113px; background: blue" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_12" style="margin-top:210px; margin-left:158px; background: lightblue" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_13" style="margin-top:250px; margin-left:23px; background: brown" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_14" style="margin-top:250px; margin-left:68px; background: violet" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_15" style="margin-top:250px; margin-left:113px; background: orange" onclick="change_color(this)"> </div>
+                <div type="field" class="small_color_field" id="small_color_16" style="margin-top:250px; margin-left:158px; background: chocolate" onclick="change_color(this)"> </div>
+                <div type="field" id="color_field" onclick="change_color(this)"> </div>
+                <input type="range" id="red_range" min="0" max="255" step="1" value="0" style="margin-top:360px; margin-left:20px;" onmousedown="move_value(this)"> 
+                <input type="text" class="range_field" size="3" id="range_field_red" style="margin-top:360px; margin-left:150px;" value="0" onfocus="zero(this)" disabled="true">
+                <input type="range" id="green_range" min="0" max="255" step="1" value="0" style="margin-top:400px; margin-left:20px;" onmousedown="move_value(this)"> 
+                <input type="text" class="range_field" size="3" id="range_field_green" style="margin-top:400px; margin-left:150px;" value="0" onfocus="zero(this)" disabled="true">
+                <input type="range" id="blue_range" min="0" max="255" step="1" value="0" style="margin-top:440px; margin-left:20px;" onmousedown="move_value(this)"> 
+                <input type="text" class="range_field" size="3" id="range_field_blue" style="margin-top:440px; margin-left:150px;" value="0" onfocus="zero(this)" disabled="true">
+              </div>
+            </div>  
+            <div class="info_left" style="margin-top: 0px; ">
+              Инструменты
+            </div>
+            <input value="Кисть" type="submit" id="pb1" class="paint_button_1" onclick="tool_edit(1,this)">
+            <input value="Ластик" type="submit" id="pb2" class="paint_button_1" onclick="tool_edit(5,this)">
+            <input value="Линия" type="submit" id="pb3" class="paint_button_1" onclick="tool_edit(2,this)">
+            <input value="Квадрат"  type="submit" id="pb4" class="paint_button_1" onclick="tool_edit(4,this)">
+            <input value="Окружность"  type="submit" id="pb5" class="paint_button_1" onclick="tool_edit(3,this)">
+            <div class="info_left">
+              Размер кисти
+            </div>
+            <input value="1" type="submit" id="bs1" class="brushsize" onclick="brush_edit(2,this)">
+            <input value="2" type="submit" id="bs2" class="brushsize" onclick="brush_edit(4,this)"> 
+            <input value="3" type="submit" id="bs3" class="brushsize" onclick="brush_edit(7,this)">
+            <input value="4" type="submit" id="bs4" class="brushsize" onclick="brush_edit(10,this)"> 
+            <div class="info_left">
+              Заливка
+            </div>
+            <input value="Да" type="submit" id="fb1" class="paint_button_2" onclick="fill_edit(1,this)">
+            <input value="Нет" type="submit" id="fb2" class="paint_button_2" onclick="fill_edit(0,this)"> 
+          </div>
+        </div>
       </div>  
     </div>
   </div>
