@@ -198,5 +198,23 @@ $(function()
         }
       })
     });
+
+    $('#search_button').on('click', function(e)
+    {
+      var word = $("#search_field").val();
+
+      e.preventDefault();
+
+      $.ajax(
+      {
+        url: 'php/search.php',
+        type: 'post',
+        data: {'search': true, 'word':word},
+        success: function(data)
+        {
+          location.reload();
+        }
+      })
+    });
   });
   

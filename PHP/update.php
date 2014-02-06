@@ -11,7 +11,6 @@
 	$dataBase = "mainbase";
 	$mysqli = new mysqli($host, $user, $password, $dataBase);
 
-
 	if ($_POST['add']  AND $name AND $surname AND $course AND $faculty)
 	{
 

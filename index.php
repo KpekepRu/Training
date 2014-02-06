@@ -19,6 +19,9 @@
 
             if  ($_SESSION['autho']) $autho = true;
             else $autho = false;    
+
+            $empty = true;
+
             $username = $_SESSION['username'];
 
             while ($row = $result->fetch_assoc())
@@ -26,12 +29,20 @@
                   $record[] = $row;
             }
 
+            if ($_SESSION['words'])
+            {     
+                 $empty = false;
+                 $words = $_SESSION['words'];
+            }
+            else $words = "Пусто...";
+
             echo $template->render(array(
+                  'empty' => $empty,
                   'username' => $username,
                   'autho' => $autho,
-                  'record' => $record
+                  'record' => $record,
+                  'words' => $words
             ));
-
 
 
       }
